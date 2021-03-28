@@ -5,14 +5,16 @@ namespace CSharpFundamentals
     {
         static void Main(string[] args)
         {
-            if (args.Length > 0)
-            {
-                Console.WriteLine($"Hello {args[0]}!");
-            }
-            else
-            {
-                Console.WriteLine($"Hello!");
-            }
+            var numbers = new[] { 12.2, 13.3, 10.4, 1.6 };
+
+            var result = 0.0;
+
+            result += numbers[0];
+            result += numbers[1];
+            result += numbers[2];
+            result += numbers[3];
+
+            Console.WriteLine(result / 4);
         }
     }
 }
