@@ -12,9 +12,9 @@ namespace Models
         }
 
         string name;
-        List<double> grades;
+        static List<double> grades;
 
-        public void AddGrade(double grade)
+        static public void AddGrade(double grade)
         {
             grades.Add(grade);
         }
