@@ -19,7 +19,7 @@ namespace Tests
             var results = book.GetStatistics();
 
             // asset
-            Assert.Equal(85.6, results.Average);
+            Assert.Equal(85.6, results.Average, 1);
         }
     }
 }
