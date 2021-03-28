@@ -1,4 +1,5 @@
 using System;
+using Models;
 using Xunit;
 
 namespace Tests
@@ -8,13 +9,17 @@ namespace Tests
         [Fact]
         public void Test1()
         {
-            var x = 5;
-            var y = 2;
-            var expected = 7;
+            // arrange
+            var book = new Book("New book");
+            book.AddGrade(89.1);
+            book.AddGrade(90.5);
+            book.AddGrade(77.3);
 
-            var actual = x + y;
+            // act
+            var results = book.GetStatistics();
 
-            Assert.Equal(expected, actual);
+            // asset
+            Assert.Equal(85.6, results.Average);
         }
     }
 }

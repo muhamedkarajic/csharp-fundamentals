@@ -24,22 +24,21 @@ namespace Models
             grades.Add(grade);
         }
 
-        public void ShowStatistics()
+        public Statistics GetStatistics()
         {
-            var lowestGrade = double.MaxValue;
-            var highestGrade = double.MinValue;
+            var result = new Statistics();
+            result.Lowest = double.MaxValue;
+            result.Highest = double.MinValue;
             
-            var result = 0.0;
             foreach (var grade in grades)
             {
-                lowestGrade = Math.Min(grade, lowestGrade);
-                highestGrade = Math.Max(grade, highestGrade);
-                result += grade;
+                result.Lowest = Math.Min(grade, result.Lowest);
+                result.Highest = Math.Max(grade, result.Highest);
+                result.Average += grade;
             }
-
-            Console.WriteLine($"The lowest grade is {lowestGrade}");
-            Console.WriteLine($"The highest grade is {highestGrade}");
-            Console.WriteLine($"The average grade is {result / grades.Count:N2}");
+            result.Average /= grades.Count;
+            
+            return result;
         }
     }
 }
