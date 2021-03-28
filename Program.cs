@@ -13,7 +13,7 @@ namespace CSharpFundamentals
 
             if (numbers.Count > 0)
             {
-                Console.WriteLine(numbers.Sum() / numbers.Count);
+                Console.WriteLine($"The average of the numbers is: {numbers.Sum() / numbers.Count}");
             }
             else
             {
