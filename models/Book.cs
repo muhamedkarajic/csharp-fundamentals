@@ -16,6 +16,11 @@ namespace Models
 
         public void AddGrade(double grade)
         {
+            if(grade > 100)
+                throw new Exception("Grade can't be higher then 100.0");
+            else if(grade < 0)
+                throw new Exception("Grade can't be less then 0.0");
+                
             grades.Add(grade);
         }
     }

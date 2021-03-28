@@ -7,7 +7,7 @@ namespace CSharpFundamentals
         static void Main(string[] args)
         {
             var book = new Book("New book");
-            book.AddGrade(89.2);
+            book.AddGrade(189.2);
         }
     }
 }
