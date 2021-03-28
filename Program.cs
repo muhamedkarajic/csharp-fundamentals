@@ -9,10 +9,10 @@ namespace CSharpFundamentals
 
             var result = 0.0;
 
-            result += numbers[0];
-            result += numbers[1];
-            result += numbers[2];
-            result += numbers[3];
+            foreach (var number in numbers)
+            {
+                result += number;
+            }
 
             Console.WriteLine(result / 4);
         }
