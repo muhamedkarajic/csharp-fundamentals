@@ -19,7 +19,6 @@ namespace CSharpFundamentals
             {
                 Console.WriteLine("List is empty");
             }
-
         }
     }
 }
