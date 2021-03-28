@@ -14,7 +14,14 @@ namespace CSharpFundamentals
                 result += number;
             }
 
-            Console.WriteLine(result / 4);
+            if (numbers.Length > 0)
+            {
+                Console.WriteLine(result / numbers.Length);
+            }
+            else
+            {
+                Console.WriteLine("Array is empty.");
+            }
         }
     }
 }
