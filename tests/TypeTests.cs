@@ -6,6 +6,17 @@ namespace Tests
     public class TypeTests
     {
         [Fact]
+        public void BookGetsChangedName()
+        {
+          
+            var book = GetBookByName("Book Name");
+            
+            SetBookName(book, "New Book Name");
+
+            Assert.Equal("New Book Name", book.Name);
+        }
+
+        [Fact]
         public void BookCalculatesAnAverageGrade()
         {
           
@@ -28,9 +39,14 @@ namespace Tests
             Assert.True(object.ReferenceEquals(book1, book2));
         }
 
-        Book GetBookByName(string name)
+        private Book GetBookByName(string name)
         {
             return new Book(name);
+        }
+
+        private void SetBookName(Book book, string name)
+        {
+            book.Name = name;
         }
     }
 }
