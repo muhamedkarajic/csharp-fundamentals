@@ -6,12 +6,22 @@ namespace Tests
     public class TypeTests
     {
         [Fact]
-        public void BookGetsChangedName()
+        public void CanSetNameFromReference()
         {
-          
             var book = GetBookByName("Book Name");
-            
-            SetBookName(book, "New Book Name");
+
+            SetBookNameByReference(ref book, "New Book Name");
+            SetBookNameByReferenceOut(out book, "New Book Name");
+
+            Assert.Equal("New Book Name", book.Name);
+        }
+
+        [Fact]
+        public void CantSetNameFromValue()
+        {
+            var book = GetBookByName("Book Name");
+
+            SetBookNameByValue(book, "New Book Name");
 
             Assert.Equal("New Book Name", book.Name);
         }
@@ -19,7 +29,7 @@ namespace Tests
         [Fact]
         public void BookCalculatesAnAverageGrade()
         {
-          
+
             var book1 = GetBookByName("Book 1");
             var book2 = GetBookByName("Book 2");
 
@@ -31,7 +41,7 @@ namespace Tests
         [Fact]
         public void TwoVarsCanReferenceSameObject()
         {
-          
+
             var book1 = GetBookByName("Book 1");
             var book2 = book1;
 
@@ -44,9 +54,19 @@ namespace Tests
             return new Book(name);
         }
 
-        private void SetBookName(Book book, string name)
+        private void SetBookNameByValue(Book book, string name)
         {
             book.Name = name;
+        }
+
+        private void SetBookNameByReferenceOut(out Book book, string name)
+        {
+            book = new Book(name);
+        }
+
+        private void SetBookNameByReference(ref Book book, string name)
+        {
+            book = new Book(name);
         }
     }
 }
