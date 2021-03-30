@@ -7,11 +7,11 @@ namespace Models
     {
         public Book(string name)
         {
-            this.name = name;
+            Name = name;
             grades = new List<double>();
         }
 
-        string name;
+        public string Name;
         List<double> grades;
 
         public void AddGrade(double grade)
