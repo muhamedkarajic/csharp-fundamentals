@@ -16,6 +16,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\csharp-fundamentals.csproj" />
+    <ProjectReference Include="../src/GradeBook/grade-book.csproj" />
   </ItemGroup>
 </Project>
