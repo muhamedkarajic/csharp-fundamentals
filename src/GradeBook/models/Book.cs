@@ -14,7 +14,7 @@ namespace Models
         public string Name;
         List<double> grades;
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch (letter)
             {
