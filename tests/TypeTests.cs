@@ -9,12 +9,12 @@ namespace Tests
         public void ValueTypesAlsoPassedByValue()
         {
             var x = GetInt();
-            SetInt(x);
+            SetInt(ref x);
 
-            Assert.Equal(3, x);
+            Assert.Equal(4, x);
         }
 
-        private void SetInt(int x)
+        private void SetInt(ref int x)
         {
             x = 4;
         }
