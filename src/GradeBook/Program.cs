@@ -17,6 +17,7 @@ namespace CSharpFundamentals
             Console.WriteLine($"The lowest grade is {statistics.Lowest}");
             Console.WriteLine($"The highest grade is {statistics.Highest}");
             Console.WriteLine($"The average grade is {statistics.Average:N1}");
+            Console.WriteLine($"Grade Letter: {statistics.Letter}");
         }
     }
 }
