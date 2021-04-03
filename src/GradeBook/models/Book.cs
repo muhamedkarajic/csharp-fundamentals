@@ -5,15 +5,16 @@ namespace Models
 {
     public class Book
     {
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
         public Book(string name)
         {
             Name = name;
             grades = new List<double>();
         }
 
-
         public readonly string Name;
-
+        public event GradeAddedDelegate GradeAdded;
         List<double> grades;
 
         public void AddGrade(char letter)
@@ -51,6 +52,10 @@ namespace Models
                 throw new Exception("Grade can't be less then 0.0");
 
             grades.Add(grade);
+            if(GradeAdded != null)
+            {
+                GradeAdded(this, new EventArgs());
+            }
         }
 
         public Statistics GetStatistics()
