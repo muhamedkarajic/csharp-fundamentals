@@ -6,6 +6,25 @@ namespace Tests
     public class TypeTests
     {
         [Fact]
+        public void ValueTypesAlsoPassedByValue()
+        {
+            var x = GetInt();
+            SetInt(x);
+
+            Assert.Equal(3, x);
+        }
+
+        private void SetInt(int x)
+        {
+            x = 4;
+        }
+
+        private int GetInt()
+        {
+            return 3;
+        }
+
+        [Fact]
         public void CanSetNameFromReference()
         {
             var book = GetBookByName("Book Name");
