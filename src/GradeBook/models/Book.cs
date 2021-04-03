@@ -12,7 +12,7 @@ namespace Models
         }
 
 
-        public string Name { get; private set; }
+        public readonly string Name;
 
         List<double> grades;
 
