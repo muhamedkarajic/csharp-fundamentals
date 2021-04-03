@@ -52,7 +52,7 @@ namespace Models
                 throw new Exception("Grade can't be less then 0.0");
 
             grades.Add(grade);
-            if(GradeAdded != null)
+            if (GradeAdded != null)
             {
                 GradeAdded(this, new EventArgs());
             }
