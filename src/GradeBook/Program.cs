@@ -5,12 +5,15 @@ namespace CSharpFundamentals
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] grades)
         {
             var book = new Book("New book");
-            book.AddGrade(89.89);
-            book.AddGrade(25.42);
-            book.AddGrade(92.11);
+            
+            foreach (var grade in grades)
+            {
+                book.AddGrade(Double.Parse(grade));
+            }
+            
             book.GetStatistics();
             
             var statistics = book.GetStatistics();
