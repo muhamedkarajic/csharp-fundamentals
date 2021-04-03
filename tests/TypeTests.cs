@@ -7,21 +7,30 @@ namespace Tests
 
     public class TypeTests
     {
+        int count = 0;
+
         [Fact]
         public void WriteLogDelegateCanPointToMethod()
         {
             WriteLogDelegate log; 
 
-            log = new WriteLogDelegate(ReturnMessage);
-            log = ReturnMessage;
+            log = new WriteLogDelegate(ReturnMessage1);
+            log += ReturnMessage2;
 
-            var result = log("Hello");
-            Assert.Equal("Hello", result);
+            log("Hello");
+            Assert.Equal(2, count);
         }
 
-        string ReturnMessage(string message)
+        string ReturnMessage1(string message)
         {
-            return message;
+            count++;
+            return message.ToUpper();
+        }
+
+        string ReturnMessage2(string message)
+        {
+            count++;
+            return message.ToLower();
         }
 
         [Fact]
