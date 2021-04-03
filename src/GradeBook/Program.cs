@@ -8,7 +8,8 @@ namespace CSharpFundamentals
         static void Main(string[] args)
         {
             var book = new Book("New book");
-
+            book.GradeAdded += OnGradeAdded;
+            
             while (true)
             {
                 Console.Write("Please enter a grade ('q' to quit): ");
@@ -41,6 +42,11 @@ namespace CSharpFundamentals
             Console.WriteLine($"The highest grade is {statistics.Highest}");
             Console.WriteLine($"The average grade is {statistics.Average:N1}");
             Console.WriteLine($"Grade Letter: {statistics.Letter}");
+        }
+
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("Event: GRADE ADDED");
         }
     }
 }
