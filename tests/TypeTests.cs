@@ -6,6 +6,22 @@ namespace Tests
     public class TypeTests
     {
         [Fact]
+        public void StringsBehaveLikeValueTypes()
+        {
+            string name = "Muhamed";
+            string nameUppercase = MakeUppercase(name);
+
+            System.Console.WriteLine(name);
+            Assert.Equal("Muhamed", name);
+            Assert.Equal("MUHAMED", nameUppercase);
+        }
+
+        private string MakeUppercase(string parameter)
+        {
+            return parameter.ToUpper();
+        }
+
+        [Fact]
         public void ValueTypesAlsoPassedByValue()
         {
             var x = GetInt();
