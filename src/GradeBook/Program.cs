@@ -8,20 +8,33 @@ namespace CSharpFundamentals
         static void Main(string[] args)
         {
             var book = new Book("New book");
-            
+
             while (true)
             {
                 Console.Write("Please enter a grade ('q' to quit): ");
                 var input = Console.ReadLine();
-                if(input == "q")
+                if (input == "q")
                     break;
-                
-                var grade = double.Parse(input);
-                book.AddGrade(grade);
+
+                try
+                {
+                    var grade = Double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine($"Grade of {Double.Parse(input):N2}, added succesfully.");
+                }
             }
 
-            book.GetStatistics();
-            
             var statistics = book.GetStatistics();
             Console.WriteLine($"The lowest grade is {statistics.Lowest}");
             Console.WriteLine($"The highest grade is {statistics.Highest}");
