@@ -11,22 +11,8 @@ namespace Models
             grades = new List<double>();
         }
 
-        private string name;
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (String.IsNullOrWhiteSpace(value))
-                {
-                    name = value;
-                }
-            }
-        }
+        public string Name { get; set; }
 
         List<double> grades;
 
