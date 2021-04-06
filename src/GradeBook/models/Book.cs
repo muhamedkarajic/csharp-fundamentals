@@ -5,7 +5,7 @@ namespace Models
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-    public class NamedObject
+    public class NamedObject : Object
     {
         public NamedObject(string name)
         {
@@ -18,7 +18,6 @@ namespace Models
 
     public class Book : NamedObject
     {
-
         public Book(string name): base(name)
         {
             grades = new List<double>();
