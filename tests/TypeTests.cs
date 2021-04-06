@@ -79,15 +79,15 @@ namespace Tests
             Assert.Equal("New Book Name", book.Name);
         }
 
-        // [Fact]
-        // public void CantSetNameFromValue()
-        // {
-        //     var book = GetBookByName("Book Name");
+        [Fact]
+        public void CantSetNameFromValue()
+        {
+            var book = GetBookByName("Book Name");
 
-        //     SetBookNameByValue(book, "New Book Name");
+            SetBookNameByValue(book, "New Book Name");
 
-        //     Assert.Equal("New Book Name", book.Name);
-        // }
+            Assert.Equal("New Book Name", book.Name);
+        }
 
         [Fact]
         public void BookCalculatesAnAverageGrade()
@@ -117,10 +117,10 @@ namespace Tests
             return new Book(name);
         }
 
-        // private void SetBookNameByValue(Book book, string name)
-        // {
-        //     book.Name = name;
-        // }
+        private void SetBookNameByValue(Book book, string name)
+        {
+            book.Name = name;
+        }
 
         private void SetBookNameByReferenceOut(out Book book, string name)
         {
