@@ -7,6 +7,11 @@ namespace Models
 
     public class NamedObject
     {
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
         public string Name { get; set; }
 
     }
@@ -14,9 +19,8 @@ namespace Models
     public class Book : NamedObject
     {
 
-        public Book(string name)
+        public Book(string name): base(name)
         {
-            Name = name;
             grades = new List<double>();
         }
 
