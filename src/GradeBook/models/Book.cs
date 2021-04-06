@@ -16,10 +16,26 @@ namespace Models
 
     }
 
-    public abstract class Book : NamedObject
+    public interface IBook
+    {
+        void AddGrade(double grade);
+        Statistics GetStatistics();
+        string Name { get; }
+        event GradeAddedDelegate GradeAdded;
+    }
+
+    public abstract class Book : NamedObject, IBook
     {
         public Book(string name) : base(name) { }
+
         public abstract void AddGrade(double grade);
+
+        public virtual event GradeAddedDelegate GradeAdded;
+
+        public virtual Statistics GetStatistics()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class InMemoryBook : Book
@@ -29,7 +45,7 @@ namespace Models
             grades = new List<double>();
         }
 
-        public event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
         List<double> grades;
 
         public void AddGrade(char letter)
@@ -73,7 +89,7 @@ namespace Models
             }
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var result = new Statistics();
             result.Lowest = double.MaxValue;

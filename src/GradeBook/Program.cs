@@ -20,7 +20,7 @@ namespace CSharpFundamentals
             Console.WriteLine($"Grade Letter: {statistics.Letter}");
         }
 
-        private static void EnterGrades(InMemoryBook book)
+        private static void EnterGrades(IBook book)
         {
             while (true)
             {
