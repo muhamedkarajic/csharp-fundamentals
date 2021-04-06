@@ -3,9 +3,16 @@ using System.Collections.Generic;
 
 namespace Models
 {
-    public class Book
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+    public class NamedObject
     {
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+        public string Name { get; set; }
+
+    }
+
+    public class Book : NamedObject
+    {
 
         public Book(string name)
         {
@@ -13,7 +20,6 @@ namespace Models
             grades = new List<double>();
         }
 
-        public readonly string Name;
         public event GradeAddedDelegate GradeAdded;
         List<double> grades;
 
