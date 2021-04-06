@@ -16,9 +16,15 @@ namespace Models
 
     }
 
-    public class Book : NamedObject
+    public abstract class BookBase : NamedObject
     {
-        public Book(string name): base(name)
+        public BookBase(string name) : base(name) { }
+        public abstract void AddGrade(double grade);
+    }
+
+    public class Book : BookBase
+    {
+        public Book(string name) : base(name)
         {
             grades = new List<double>();
         }
@@ -53,7 +59,7 @@ namespace Models
             }
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
             if (grade > 100)
                 throw new Exception("Grade can't be higher then 100.0");

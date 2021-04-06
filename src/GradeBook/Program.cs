@@ -9,7 +9,19 @@ namespace CSharpFundamentals
         {
             var book = new Book("New book");
             book.GradeAdded += OnGradeAdded;
-            
+
+            EnterGrades(book);
+
+            var statistics = book.GetStatistics();
+            Console.WriteLine($"For the book named {book.Name}");
+            Console.WriteLine($"The lowest grade is {statistics.Lowest}");
+            Console.WriteLine($"The highest grade is {statistics.Highest}");
+            Console.WriteLine($"The average grade is {statistics.Average:N1}");
+            Console.WriteLine($"Grade Letter: {statistics.Letter}");
+        }
+
+        private static void EnterGrades(Book book)
+        {
             while (true)
             {
                 Console.Write("Please enter a grade ('q' to quit): ");
@@ -35,13 +47,6 @@ namespace CSharpFundamentals
                     Console.WriteLine($"Grade of {Double.Parse(input):N2}, added succesfully.");
                 }
             }
-
-            var statistics = book.GetStatistics();
-            Console.WriteLine($"For the book named {book.Name}");
-            Console.WriteLine($"The lowest grade is {statistics.Lowest}");
-            Console.WriteLine($"The highest grade is {statistics.Highest}");
-            Console.WriteLine($"The average grade is {statistics.Average:N1}");
-            Console.WriteLine($"Grade Letter: {statistics.Letter}");
         }
 
         static void OnGradeAdded(object sender, EventArgs e)
