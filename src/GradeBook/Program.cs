@@ -7,7 +7,7 @@ namespace CSharpFundamentals
     {
         static void Main(string[] args)
         {
-            var book = new InMemoryBook("New book");
+            var book = new DiskBook("New book");
             book.GradeAdded += OnGradeAdded;
 
             EnterGrades(book);
