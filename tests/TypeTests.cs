@@ -112,24 +112,24 @@ namespace Tests
             Assert.True(object.ReferenceEquals(book1, book2));
         }
 
-        private Book GetBookByName(string name)
+        private InMemoryBook GetBookByName(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
 
-        private void SetBookNameByValue(Book book, string name)
+        private void SetBookNameByValue(InMemoryBook book, string name)
         {
             book.Name = name;
         }
 
-        private void SetBookNameByReferenceOut(out Book book, string name)
+        private void SetBookNameByReferenceOut(out InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
 
-        private void SetBookNameByReference(ref Book book, string name)
+        private void SetBookNameByReference(ref InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace CSharpFundamentals
     {
         static void Main(string[] args)
         {
-            var book = new Book("New book");
+            var book = new InMemoryBook("New book");
             book.GradeAdded += OnGradeAdded;
 
             EnterGrades(book);
@@ -20,7 +20,7 @@ namespace CSharpFundamentals
             Console.WriteLine($"Grade Letter: {statistics.Letter}");
         }
 
-        private static void EnterGrades(Book book)
+        private static void EnterGrades(InMemoryBook book)
         {
             while (true)
             {
